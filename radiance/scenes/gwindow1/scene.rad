@@ -1,0 +1,8 @@
+# This file is used to place all the objects
+
+!xform lib/rad/sky.rad
+!xform lib/rad/pedret1.rad
+!xform lib/rad/gwindow.rad
+
+
+# !xform -n lamp1 -t 9 11 4 ies_lib/type_S1.rad

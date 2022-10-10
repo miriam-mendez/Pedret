@@ -1,0 +1,45 @@
+void mesh candle
+5 lib/obj/candle.rtm -t -2.8231 4.2882 -1.6
+0
+0
+
+void mesh candle1
+5 lib/obj/candle.rtm -t -2.8231 4.3977 -1.6
+0
+0
+
+void mesh candle2
+5 lib/obj/candle.rtm -t -2.8231 4.5072 -1.6
+0
+0
+
+void mesh candle3
+5 lib/obj/candle.rtm -t -2.8231 4.6167 -1.6
+0
+0
+
+
+void mesh candle4
+5 lib/obj/candle.rtm -t -2.7715 4.2513 -1.6
+0
+0
+
+void mesh candle5
+5 lib/obj/candle.rtm -t -2.7715 4.3401 -1.6
+0
+0
+
+void mesh candle6
+5 lib/obj/candle.rtm -t -2.7715 4.4496 -1.6
+0
+0
+
+void mesh candle7
+5 lib/obj/candle.rtm -t -2.7715 4.5591 -1.6
+0
+0
+
+void mesh candle8
+5 lib/obj/candle.rtm -t -2.7715 4.6686 -1.6
+0
+0

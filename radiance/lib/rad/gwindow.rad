@@ -1,0 +1,16 @@
+!cat ../mat/gwindow.mat
+
+skyfunc brightfunc window_dist
+2 winxmit winxmit.cal
+0
+0
+
+window_dist illum window_illum
+1 window
+0
+3 .88 .88 .88
+
+window_illum mesh windows
+1 lib/obj/gwindow.rtm
+0
+0

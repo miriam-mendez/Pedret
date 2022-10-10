@@ -1,0 +1,6 @@
+radiance/lib/tex/*
+radiance/lib/obj/*
+
+blender/__pycache__
+blender/BaseColor.py
+blender/addon.py

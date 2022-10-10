@@ -1,0 +1,21 @@
+OCTREE=scenes/pedret1/scene20:00L.oct
+AMB=scenes/pedret1/scene20:00L.amb
+scene=scenes/pedret1/scene.rad
+
+EXPOSURE = 1
+VARIABILITY = High
+DETAIL = High
+QUALITY = High
+
+INDIRECT = 8
+PENUMBRAS = True 
+PICTURE = scenes/pedret1/img/lights20:00
+RESOLUTION = 512 512
+# render=-i
+
+view= candle -vf lib_view/candles.vf
+#view= door -vf lib_view/door.vf
+#view= window -vf  lib_view/window.vf
+#view= entrance -vf lib_view/entrance.vf
+
+REPORT=1
