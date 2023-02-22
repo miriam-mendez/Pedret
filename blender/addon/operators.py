@@ -192,12 +192,7 @@ class RAD_OT_Export(bpy.types.Operator):
     bl_label = "Export Export the thebjects to rad"
 
     def execute(self, context):
-        cam_name = context.scene.radiance.camera.name_full
         file_name = context.scene.radiance.file_name
-
-        generate_sky(context)
-        generate_view(context, cam_name)
-        generate_rif(context, cam_name)
 
         scene = ""
         bpy.ops.object.select_all(action="DESELECT")
@@ -232,10 +227,14 @@ class RAD_OT_Preview(bpy.types.Operator):
 
     bl_idname = "radiance.preview"
     bl_label = "Preview rendering"
-
+    
     def execute(self, context):
         s = context.scene.radiance
+        cam_name = context.scene.radiance.camera.name_full
 
+        generate_sky(context)
+        generate_view(context, cam_name)
+        generate_rif(context, cam_name)
         command = f"rad -o x11 {s.file_name}.rif"
         os.system(command)
         return {"FINISHED"}
@@ -249,7 +248,11 @@ class RAD_OT_Render(bpy.types.Operator):
 
     def execute(self, context):
         s = context.scene.radiance
-
+        cam_name = context.scene.radiance.camera.name_full
+        
+        generate_sky(context)
+        generate_view(context, cam_name)
+        generate_rif(context, cam_name)
         command = f"rad  {s.file_name}.rif"
         os.system(command)
         if s.is_false_color:
