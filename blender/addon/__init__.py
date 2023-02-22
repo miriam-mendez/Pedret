@@ -10,19 +10,19 @@ bl_info={
     "blender":(3,0,1)
 }
 
-PYTHON_PATH = "/home/miriam/Documentos/TFG/Pedret/addon"
+PYTHON_PATH = "/home/miriam/Documentos/FBX/addon"
 
 import bpy, sys, os
 sys.path.append(PYTHON_PATH)
 
-if __name__ == "radiance":
-    from . import ui
-    from . import settings
-    from . import operators
-else:
-    from ui import *
-    from settings import *
-    from operators import *
+#if __name__ == "radiance":
+#    from . import ui
+#    from . import settings
+#    from . import operators
+#else:
+from ui import *
+from settings import *
+from operators import *
 
 RADIANCE_BIN_FOLDER = "/usr/local/bin"
 RADIANCE_LIB_FOLDER = "/usr/local/lib/radiance"

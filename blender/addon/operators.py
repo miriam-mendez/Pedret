@@ -138,7 +138,7 @@ def obj2rad(context, ob, materials, mod):
     command = f"obj2mesh -a {materials} {ob.name}.obj {ob.name}.rtm"
     os.system(command)
 
-    with open(f"{ob.name}.rad", "a") as f:
+    with open(f"{ob.name}.rad", "w") as f:
         f.write(f"{mod} mesh {ob.name}\n")
         f.write(f"1 {ob.name}.rtm\n0\n0\n")
 
@@ -168,7 +168,7 @@ def generate_material(context, mat, file):
         hdr = get_text2hdr(context, mat)
         file.addMaterialColorTexture(mat.name, hdr, rad)
     else:
-        mod = mat.modifiers
+        mod = mat.modifier
         addMaterials = {
             "light": file.addMaterialLight,
             "illum": file.addMaterialIllum,

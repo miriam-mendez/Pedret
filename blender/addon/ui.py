@@ -145,12 +145,12 @@ class RAD_PT_Material(bpy.types.Panel):
             row = layout.row()
 
             if m == "illum" or m == "mirror":
-                mod = context.object.active_material.modifiers
+                mod = context.object.active_material.modifier
                 if len(mod) == 0:
-                    row.operator("modifiers.add")
+                    row.operator("modifier.add")
                 else:
                     row.prop(mod[0], "material")
-                    row.operator("modifiers.clear", text="", icon="REMOVE")
+                    row.operator("modifier.clear", text="", icon="REMOVE")
 
             elif m == "glow":
                 row.prop(radiance, "maxrad")
@@ -179,7 +179,7 @@ class RAD_PT_Material(bpy.types.Panel):
                 for i in range(len(mods)):
                     row = layout.row()
                     row.prop(mods[i], "material", text=f"mod {i}")
-                    row.operator("modifiers.remove", text="", icon="REMOVE").index = i
+                    row.operator("modifier.remove", text="", icon="REMOVE").index = i
 
 
 class RAD_PT_Light(bpy.types.Panel):
