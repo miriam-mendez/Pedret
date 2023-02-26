@@ -28,8 +28,10 @@ def generate_view(context, cam_name):
     lx, ly, lz = cam.location
     ux, uy, uz = cam.rotation_euler.to_matrix() @ Vector((0.0, 1.0, 0.0))
     dx, dy, dz = cam.rotation_euler.to_matrix() @ Vector((0.0, 0.0, -1.0))
+    vo = bpy.data.cameras[cam_name].clip_start
+    va = bpy.data.cameras[cam_name].clip_end
     with open(f"{cam_name}.vf", "w") as f:
-        f.write(f"rvu -vtv -vp {lx} {ly} {lz} -vd {dx} {dy} {dz} -vu {ux} {uy} {uz}")
+        f.write(f"rvu -vtv -vp {lx} {ly} {lz} -vd {dx} {dy} {dz} -vu {ux} {uy} {uz} -vo {vo} -va {va}")
 
 
 def generate_rif(context, cam_name):
@@ -253,8 +255,10 @@ class RAD_OT_Render(bpy.types.Operator):
         generate_sky(context)
         generate_view(context, cam_name)
         generate_rif(context, cam_name)
-        command = f"rad  {s.file_name}.rif"
-        os.system(command)
+
+        command = f"bash -c 'rad  {s.file_name}.rif ; $SHELL'"
+        os.system(f"mate-terminal --command=\"{command}\" &") ####### ¡¡¡¡ not evry one has mate-terminal !!!!
+
         if s.is_false_color:
             file = f"{s.file_name}_{s.camera.name_full}.hdr"
             command = f"falsecolor -ip {file} -l Lux > falseC_{file}"
